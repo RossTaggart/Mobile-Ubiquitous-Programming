@@ -21,6 +21,13 @@
         android:text="Day Born"
         android:id="@+id/tvDayBorn" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearance"
+        android:text="Star Sign:"
+        android:id="@+id/tvStarSign" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

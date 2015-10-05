@@ -15,6 +15,7 @@ public class mcSaveData extends Activity {
     private int mcSDDOW;
     private int mcSDMonth;
     private String mcSDDayBorn;
+    private String mcSDStarSign;
 
     private void setmcSDDOW(int isDOW)
     {
@@ -46,6 +47,15 @@ public class mcSaveData extends Activity {
         return mcSDDayBorn;
     }
 
+    private void setmcSDStarSign(String mcSDStarSign){
+        this.mcSDStarSign = mcSDStarSign;
+    }
+
+    public String getmcSDStarSign()
+    {
+        return mcSDStarSign;
+    }
+
     /**
      *
      * Declare constructor and data manipulation methods
@@ -55,6 +65,7 @@ public class mcSaveData extends Activity {
         setmcSDDOW(1);
         setmcSDMonth(1);
         setmcSDDayBorn("Sunday");
+        setmcSDStarSign("January");
         try {
             this.mcSharedPrefs = mcSDPrefs;
         }
@@ -90,5 +101,6 @@ public class mcSaveData extends Activity {
         savePreferences("mc_DOW", 1);
         savePreferences("mc_Month", 1);
         savePreferences("mc_DayBorn", "Empty");
+        savePreferences("mc_StarSign", "Empty");
     }
 }

@@ -19,6 +19,7 @@ public class mcSaveDataOutput extends Activity implements View.OnClickListener {
     TextView mcSDODOW;
     TextView mcSDOMonth;
     TextView mcSDODayBorn;
+    TextView mcSDStarSign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class mcSaveDataOutput extends Activity implements View.OnClickListener {
         mcSDODOW = (TextView) findViewById(R.id.tvDOW);
         mcSDOMonth = (TextView) findViewById(R.id.tvMonth);
         mcSDODayBorn = (TextView) findViewById(R.id.tvDayBorn);
+        mcSDStarSign = (TextView)findViewById(R.id.tvStarSign);
         //Load saved preferences
         mcSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         loadSavedPreferences();
@@ -45,6 +47,7 @@ public class mcSaveDataOutput extends Activity implements View.OnClickListener {
         mcSDODOW.setText(mcSDODOW.getText() + String.valueOf(mcSharedPrefs.getInt("mc_DOW", 1)));
         mcSDOMonth.setText(mcSDOMonth.getText() + String.valueOf(mcSharedPrefs.getInt("mc_Month", 1)));
         mcSDODayBorn.setText(mcSDODayBorn.getText() + mcSharedPrefs.getString("mc_DayBorn", "Sunday"));
+        mcSDStarSign.setText(mcSDStarSign.getText() + mcSharedPrefs.getString("mc_StarSign", "January"));
     }
 
     public void onClick(View view) {

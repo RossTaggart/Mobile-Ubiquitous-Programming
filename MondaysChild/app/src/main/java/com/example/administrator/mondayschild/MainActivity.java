@@ -29,6 +29,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     mcSaveData mcSDPrefs;
     SharedPreferences mySharedPrefs;
     FragmentManager fmAboutDialogue;
+    String sOutputMsg;
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
@@ -46,6 +47,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mcSDPrefs = new mcSaveData(mySharedPrefs);
         mcSDPrefs.setDefaultPrefs();
 
+
         fmAboutDialogue = this.getFragmentManager();
         Log.e("n", "Message");
     }
@@ -54,10 +56,17 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
 
         mondaysChild mcYourDay = new mondaysChild(dpBDay.getDayOfMonth(), dpBDay.getMonth(), dpBDay.getYear());
+        astrology usersStarSign = new astrology(dpBDay.getDayOfMonth(), dpBDay.getMonth()+1);
+
+        mcSDPrefs.savePreferences("mc_DOW", mcYourDay.getiDayOfWeek());
+        mcSDPrefs.savePreferences("mc_Month", mcYourDay.getiMonth());
+        mcSDPrefs.savePreferences("mc_DayBorn", mcYourDay.getsDOW());
+        mcSDPrefs.savePreferences("mc_StarSign", usersStarSign.getsStarSign());
 
         Intent mcOutput_Screen = new Intent(getApplicationContext(), mcOutputScreen.class);
 
-        mcOutput_Screen.putExtra("mcOutputMsg", mcYourDay.getsOutputMsg());
+        sOutputMsg = mcYourDay.getsOutputMsg() + "\nYour Star Sign is " + usersStarSign.getsStarSign();
+        mcOutput_Screen.putExtra("mcOutputMsg", sOutputMsg);
 
         Log.e("n", mcYourDay.getsOutputMsg());
         startActivity(mcOutput_Screen);

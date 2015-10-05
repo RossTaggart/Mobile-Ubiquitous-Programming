@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mondays Child</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="mc_OutputScrn">Output Screen</string>
+</resources>

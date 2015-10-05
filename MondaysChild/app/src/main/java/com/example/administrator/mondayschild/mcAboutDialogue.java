@@ -20,7 +20,7 @@ public class mcAboutDialogue extends DialogFragment {
 
         AlertDialog.Builder mcAboutDialog = new AlertDialog.Builder(getActivity());
         mcAboutDialog.setMessage("This app will take your birthday and tell you what day...")
-                .setPositiveButton("Ok", new DialogeInterface.OnClickListener() {
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialoge, int id){
 
                     }

@@ -9,10 +9,26 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/tvOutputMsg" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/imgViewStarSign"
+        android:src="@drawable/aquarius96x96" />
+    
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pick Date"
         android:id="@+id/btnPickDate"
         android:layout_gravity="center_horizontal" />
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View saved data"
+        android:id="@+id/btnSavedData"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onClick"/>
+
 </LinearLayout>

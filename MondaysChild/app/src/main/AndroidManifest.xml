@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".mcOutputScreen"
             android:label="@string/mc_OutputScrn"></activity>
+        <activity android:name=".mcSaveDataOutput"
+            android:label="@string/mc_SavedData"></activity>
     </application>
 
 </manifest>

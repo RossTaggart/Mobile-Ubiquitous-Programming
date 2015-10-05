@@ -3,7 +3,9 @@ package com.example.administrator.mondayschild;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +23,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     DatePicker dpBDay;
     Button submitBtn;
     Button btnDatePick;
+    mcSaveData mcSDPrefs;
+    SharedPreferences mySharedPrefs;
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
@@ -30,8 +34,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         //Create an instance of the datePicker Object for the Birthday
         dpBDay = (DatePicker)findViewById(R.id.datePickerBDay);
         dpBDay.setCalendarViewShown(false);
+
         submitBtn = (Button)findViewById(R.id.submitBtn);
         submitBtn.setOnClickListener(this);
+
+        mySharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mcSDPrefs = new mcSaveData(mySharedPrefs);
+        mcSDPrefs.setDefaultPrefs();
     }
 
     @Override

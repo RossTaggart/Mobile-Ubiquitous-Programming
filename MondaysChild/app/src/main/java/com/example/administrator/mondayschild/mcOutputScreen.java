@@ -40,7 +40,8 @@ public class mcOutputScreen extends Activity implements View.OnClickListener {
 
         String sImagePath = "drawable/" + iMainAct.getStringExtra("mcStarSign").toLowerCase() + "96x96";
         Context appContext = getApplicationContext();
-        int imgResId = appContext.getResources().getIdentifier(sImagePath, "drawable","com.example.administrator.mondayschild.app");
+        int imgResId = appContext.getResources().getIdentifier(sImagePath, "drawable", "com.example.administrator.mondayschild");
+        ivStarSign.setImageResource(imgResId);
         mcOutput.setText(iMainAct.getStringExtra("mcOutputMsg"));
 
     }

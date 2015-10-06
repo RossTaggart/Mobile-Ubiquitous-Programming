@@ -47,7 +47,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mcSDPrefs = new mcSaveData(mySharedPrefs);
         mcSDPrefs.setDefaultPrefs();
 
-
         fmAboutDialogue = this.getFragmentManager();
         Log.e("n", "Message");
     }
@@ -67,6 +66,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         sOutputMsg = mcYourDay.getsOutputMsg() + "\nYour Star Sign is " + usersStarSign.getsStarSign();
         mcOutput_Screen.putExtra("mcOutputMsg", sOutputMsg);
+        mcOutput_Screen.putExtra("mcStarSign", usersStarSign.getsStarSign());
 
         Log.e("n", mcYourDay.getsOutputMsg());
         startActivity(mcOutput_Screen);

@@ -45,7 +45,7 @@ public class astrology {
                 if (ssDay > 20){
                     sStarSign = "Aquarius";
                 } else {
-                    sStarSign = sStarSign + "Capricorn</p>";
+                    sStarSign = "Capricorn";
                 }
                 break;
             case 2:

@@ -22,6 +22,7 @@ public class mcStarSignsInfoDBMgr extends SQLiteOpenHelper {
 
     private static final int DB_VER = 1;
     private static final String DB_PATH = "/data/data/com.example.administrator.mondayschild.app/databases/";
+    //private static final String DB_PATH = "/app/src/main/Assets/";
     private static final String DB_NAME = "starsigns.s3db";
     private static final String TBL_STARSIGNSINFO = "starsignsinfo";
 
@@ -95,7 +96,7 @@ public class mcStarSignsInfoDBMgr extends SQLiteOpenHelper {
 
         try{
             String dbPath = DB_PATH + DB_NAME;
-            db = SQLiteDatabase.openDatabase(dbPath, null, SQLiteDatabase.OPEN_READONLY);
+            db = SQLiteDatabase.openDatabase(dbPath, null, SQLiteDatabase.OPEN_READWRITE);
             db.setLocale(Locale.getDefault());
             db.setVersion(1);
 

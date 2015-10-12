@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import java.io.IOException;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener{
@@ -30,6 +31,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     SharedPreferences mySharedPrefs;
     FragmentManager fmAboutDialogue;
     String sOutputMsg;
+    mcStarSignsInfo userStarSignInfo;
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
@@ -49,6 +51,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         fmAboutDialogue = this.getFragmentManager();
         Log.e("n", "Message");
+
+        userStarSignInfo = new mcStarSignsInfo();
     }
 
     @Override
@@ -62,13 +66,23 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mcSDPrefs.savePreferences("mc_DayBorn", mcYourDay.getsDOW());
         mcSDPrefs.savePreferences("mc_StarSign", usersStarSign.getsStarSign());
 
+        //sOutputMsg = mcYourDay.getsOutputMsg() + "\nYour Star Sign is " + usersStarSign.getsStarSign();
+        //mcOutput_Screen.putExtra("mcOutputMsg", sOutputMsg);
+        //mcOutput_Screen.putExtra("mcStarSign", usersStarSign.getsStarSign());
+
+        mcStarSignsInfoDBMgr dbStarSignMgr = new mcStarSignsInfoDBMgr(this, "starsigns.s3db", null, 1);
+        try {
+            dbStarSignMgr.dbCreate();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+        userStarSignInfo = dbStarSignMgr.findStarSign(usersStarSign.getsStarSign());
+
         Intent mcOutput_Screen = new Intent(getApplicationContext(), mcOutputScreen.class);
+        mcOutput_Screen.putExtra("starSignInfo", userStarSignInfo);
 
-        sOutputMsg = mcYourDay.getsOutputMsg() + "\nYour Star Sign is " + usersStarSign.getsStarSign();
-        mcOutput_Screen.putExtra("mcOutputMsg", sOutputMsg);
-        mcOutput_Screen.putExtra("mcStarSign", usersStarSign.getsStarSign());
-
-        Log.e("n", mcYourDay.getsOutputMsg());
+        //Log.e("n", mcYourDay.getsOutputMsg());
         startActivity(mcOutput_Screen);
 
     }

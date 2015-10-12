@@ -19,7 +19,11 @@ import android.widget.TextView;
 
 public class mcOutputScreen extends Activity implements View.OnClickListener {
 
+    TextView tvStarSign;
+    TextView tvStarSignDates;
+    TextView tvStarSignChars;
     Button btnDatePick;
+    Button btnShowSavedData;
     ImageView ivStarSign;
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -32,17 +36,26 @@ public class mcOutputScreen extends Activity implements View.OnClickListener {
         btnDatePick = (Button)findViewById(R.id.btnPickDate);
         btnDatePick.setOnClickListener(this);
 
-        TextView mcOutput = (TextView)findViewById(R.id.tvOutputMsg);
+        btnShowSavedData = (Button)findViewById(R.id.btnSavedData);
+        btnShowSavedData.setOnClickListener(this);
 
+        //Display tet
+        tvStarSign = (TextView)findViewById(R.id.tvStarSign);
+        tvStarSignDates = (TextView)findViewById(R.id.tvStarSignDates);
+        tvStarSignChars = (TextView)findViewById(R.id.tvStarSignChars);
+        //Display star sign image
         ivStarSign = (ImageView)findViewById(R.id.imgViewStarSign);
 
         Intent iMainAct = getIntent();
 
-        String sImagePath = "drawable/" + iMainAct.getStringExtra("mcStarSign").toLowerCase() + "96x96";
+        mcStarSignsInfo starSignInfo = (mcStarSignsInfo)iMainAct.getSerializableExtra("starSignInfo");
+        tvStarSign.setText(starSignInfo.getStarSign());
+        tvStarSignDates.setText(starSignInfo.getStarSignDates());
+        tvStarSignDates.setText(starSignInfo.getStarSignCharacteristics());
+        String sImagePath = "drawable/" + starSignInfo.getStarSignImg();
         Context appContext = getApplicationContext();
         int imgResId = appContext.getResources().getIdentifier(sImagePath, "drawable", "com.example.administrator.mondayschild");
         ivStarSign.setImageResource(imgResId);
-        mcOutput.setText(iMainAct.getStringExtra("mcOutputMsg"));
 
     }
 

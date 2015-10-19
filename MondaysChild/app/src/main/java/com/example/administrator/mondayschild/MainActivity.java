@@ -83,6 +83,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mcOutput_Screen.putExtra("starSignInfo", userStarSignInfo);
 
         //Log.e("n", mcYourDay.getsOutputMsg());
+        sOutputMsg = mcYourDay.getsOutputMsg();
+        mcOutput_Screen.putExtra("mcOutputMsg", sOutputMsg);
         startActivity(mcOutput_Screen);
 
     }

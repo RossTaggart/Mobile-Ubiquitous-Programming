@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.concurrent.ExecutionException;
+
 /**
  * Created by Administrator on 21/09/2015.
  */
@@ -22,6 +24,8 @@ public class mcOutputScreen extends Activity implements View.OnClickListener {
     TextView tvStarSign;
     TextView tvStarSignDates;
     TextView tvStarSignChars;
+    TextView tvHoroscope;
+    TextView tvDayBorn;
     Button btnDatePick;
     Button btnShowSavedData;
     ImageView ivStarSign;
@@ -56,6 +60,21 @@ public class mcOutputScreen extends Activity implements View.OnClickListener {
         Context appContext = getApplicationContext();
         int imgResId = appContext.getResources().getIdentifier(sImagePath, "drawable", "com.example.administrator.mondayschild");
         ivStarSign.setImageResource(imgResId);
+
+        mcRSSDataItem userHoroscope = new mcRSSDataItem();
+        String RSSFeedURL = "htpp://www.findyourfate.com/rss/dailyhoroscope-feed.asp?sign=" + starSignInfo.getStarSign();
+        mcAsyncRSSParser rssAsyncParse = new mcAsyncRSSParser(this, RSSFeedURL);
+        try {
+            userHoroscope = rssAsyncParse.execute("").get();
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        } catch (ExecutionException e){
+            e.printStackTrace();
+        }
+
+        tvHoroscope = (TextView)findViewById(R.id.tvStarSignHoroscope);
+        tvHoroscope.setText(userHoroscope.getItemDesc());
+
 
     }
 

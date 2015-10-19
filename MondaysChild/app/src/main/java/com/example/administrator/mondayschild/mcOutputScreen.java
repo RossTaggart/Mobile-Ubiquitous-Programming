@@ -22,8 +22,10 @@ public class mcOutputScreen extends Activity implements View.OnClickListener {
     TextView tvStarSign;
     TextView tvStarSignDates;
     TextView tvStarSignChars;
+
     Button btnDatePick;
     Button btnShowSavedData;
+
     ImageView ivStarSign;
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -39,7 +41,7 @@ public class mcOutputScreen extends Activity implements View.OnClickListener {
         btnShowSavedData = (Button)findViewById(R.id.btnSavedData);
         btnShowSavedData.setOnClickListener(this);
 
-        //Display tet
+        //Display text
         tvStarSign = (TextView)findViewById(R.id.tvStarSign);
         tvStarSignDates = (TextView)findViewById(R.id.tvStarSignDates);
         tvStarSignChars = (TextView)findViewById(R.id.tvStarSignChars);
@@ -51,10 +53,10 @@ public class mcOutputScreen extends Activity implements View.OnClickListener {
         mcStarSignsInfo starSignInfo = (mcStarSignsInfo)iMainAct.getSerializableExtra("starSignInfo");
         tvStarSign.setText(starSignInfo.getStarSign());
         tvStarSignDates.setText(starSignInfo.getStarSignDates());
-        tvStarSignDates.setText(starSignInfo.getStarSignCharacteristics());
+        tvStarSignChars.setText(starSignInfo.getStarSignCharacteristics());
         String sImagePath = "drawable/" + starSignInfo.getStarSignImg();
         Context appContext = getApplicationContext();
-        int imgResId = appContext.getResources().getIdentifier(sImagePath, "drawable", "com.example.administrator.mondayschild");
+        int imgResId = appContext.getResources().getIdentifier(sImagePath, "drawable", "com.example.administrator.mondayschild.app");
         ivStarSign.setImageResource(imgResId);
 
     }

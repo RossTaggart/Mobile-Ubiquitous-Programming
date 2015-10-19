@@ -51,8 +51,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         fmAboutDialogue = this.getFragmentManager();
         Log.e("n", "Message");
-
-        userStarSignInfo = new mcStarSignsInfo();
     }
 
     @Override
@@ -77,6 +75,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
+        userStarSignInfo = new mcStarSignsInfo();
+        //Log.e("Check userStarSignInfo", userStarSignInfo.getStarSign());
+        Log.e("Check getStarSign()", usersStarSign.getsStarSign());
         userStarSignInfo = dbStarSignMgr.findStarSign(usersStarSign.getsStarSign());
 
         Intent mcOutput_Screen = new Intent(getApplicationContext(), mcOutputScreen.class);

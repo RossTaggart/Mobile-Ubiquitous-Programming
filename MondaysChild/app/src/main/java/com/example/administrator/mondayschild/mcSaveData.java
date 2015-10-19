@@ -65,7 +65,7 @@ public class mcSaveData extends Activity {
         setmcSDDOW(1);
         setmcSDMonth(1);
         setmcSDDayBorn("Sunday");
-        setmcSDStarSign("January");
+        setmcSDStarSign("Aries");
         try {
             this.mcSharedPrefs = mcSDPrefs;
         }

@@ -39,11 +39,10 @@ public class mcOutputScreen extends Activity implements View.OnClickListener {
 
         btnDatePick = (Button)findViewById(R.id.btnPickDate);
         btnDatePick.setOnClickListener(this);
-
         btnShowSavedData = (Button)findViewById(R.id.btnSavedData);
         btnShowSavedData.setOnClickListener(this);
 
-        //Display tet
+        //Display text
         tvStarSign = (TextView)findViewById(R.id.tvStarSign);
         tvStarSignDates = (TextView)findViewById(R.id.tvStarSignDates);
         tvStarSignChars = (TextView)findViewById(R.id.tvStarSignChars);
@@ -55,14 +54,15 @@ public class mcOutputScreen extends Activity implements View.OnClickListener {
         mcStarSignsInfo starSignInfo = (mcStarSignsInfo)iMainAct.getSerializableExtra("starSignInfo");
         tvStarSign.setText(starSignInfo.getStarSign());
         tvStarSignDates.setText(starSignInfo.getStarSignDates());
-        tvStarSignDates.setText(starSignInfo.getStarSignCharacteristics());
+        tvStarSignChars.setText(starSignInfo.getStarSignCharacteristics());
+        //tvDayBorn.setText(iMainAct.getStringExtra("mcOutputMsg"));
         String sImagePath = "drawable/" + starSignInfo.getStarSignImg();
         Context appContext = getApplicationContext();
-        int imgResId = appContext.getResources().getIdentifier(sImagePath, "drawable", "com.example.administrator.mondayschild");
+        int imgResId = appContext.getResources().getIdentifier(sImagePath, "drawable", "com.example.administrator.mondayschild.app");
         ivStarSign.setImageResource(imgResId);
 
         mcRSSDataItem userHoroscope = new mcRSSDataItem();
-        String RSSFeedURL = "htpp://www.findyourfate.com/rss/dailyhoroscope-feed.asp?sign=" + starSignInfo.getStarSign();
+        String RSSFeedURL = "http://www.findyourfate.com/rss/dailyhoroscope-feed.asp?sign=" + starSignInfo.getStarSign();
         mcAsyncRSSParser rssAsyncParse = new mcAsyncRSSParser(this, RSSFeedURL);
         try {
             userHoroscope = rssAsyncParse.execute("").get();
@@ -72,7 +72,7 @@ public class mcOutputScreen extends Activity implements View.OnClickListener {
             e.printStackTrace();
         }
 
-        tvHoroscope = (TextView)findViewById(R.id.tvStarSignHoroscope);
+        tvHoroscope = (TextView)findViewById(R.id.tvStarSignHoroScope);
         tvHoroscope.setText(userHoroscope.getItemDesc());
 
 

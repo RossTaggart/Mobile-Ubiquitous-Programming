@@ -83,6 +83,7 @@ public class mcRSSParser {
                 // Get the next event
                 theEventType = theParser.next();
 
+
             } // End of while
 
         }

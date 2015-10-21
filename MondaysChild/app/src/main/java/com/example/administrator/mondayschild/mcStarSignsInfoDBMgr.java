@@ -21,7 +21,7 @@ import java.util.Locale;
 public class mcStarSignsInfoDBMgr extends SQLiteOpenHelper {
 
     private static final int DB_VER = 1;
-    private static final String DB_PATH = "/data/data/com.example.administrator.mondayschild.app/databases/";
+    private static final String DB_PATH = "/data/data/com.example.administrator.mondayschild/databases/";
     //private static final String DB_PATH = "/app/src/main/Assets/";
     private static final String DB_NAME = "starsigns.s3db";
     private static final String TBL_STARSIGNSINFO = "starsignsinfo";

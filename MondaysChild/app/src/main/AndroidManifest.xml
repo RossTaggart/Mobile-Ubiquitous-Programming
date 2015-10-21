@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".mcOutputScreen"
-            android:label="@string/mc_OutputScrn"></activity>
+            android:label="Day Born"></activity>
         <activity android:name=".mcSaveDataOutput"
             android:label="@string/mc_SavedData"></activity>
     </application>

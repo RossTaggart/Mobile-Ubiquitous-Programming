@@ -22,6 +22,8 @@
             android:label="Day Born"></activity>
         <activity android:name=".mcSaveDataOutput"
             android:label="@string/mc_SavedData"></activity>
+        <activity android:name=".mcBioActivity"
+            android:label="Bio Activity"></activity>
     </application>
 
 </manifest>

@@ -147,7 +147,6 @@ public class mcStarSignsInfoDBMgr extends SQLiteOpenHelper {
         }
     }
 
-
     public void addStarSignInfo(mcStarSignsInfo aStarSignInfo) {
 
         ContentValues values = new ContentValues();

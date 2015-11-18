@@ -23,7 +23,7 @@ public class MapActivity extends FragmentActivity {
     List<mcMapData> mapDataList;
     private Marker[] mapDataMarkerList = new Marker[5];
     private GoogleMap mapStarSigns;
-    private float markerColours[] = {210.0f, 120.0f, 300.0f, 270.0f};
+    private float markerColours[] = {210.0f, 120.0f, 300.0f, 330.0f, 270.0f};
 
     private LatLng latlangEKCentre = new LatLng(55.7591402,-4.1883331);
 
